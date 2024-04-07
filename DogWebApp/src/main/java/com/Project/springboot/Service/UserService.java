@@ -48,6 +48,10 @@ public class UserService {
         return userRepository.findById(id);
     }
 
+    public Optional<Integer> findUserIdByEmail(String email) {
+        return userRepository.findByEmail(email).map(User::getUserID);
+    }
+
 
 
 

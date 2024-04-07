@@ -76,20 +76,10 @@ public class DogService {
         dogRepository.deleteById(Long.valueOf(id));
     }
 
-    // Example method for checking weight status, could be expanded or modified as needed
-//    public String checkWeightStatus(Dog dog) {
-//        Optional<Breed> breed = breedRepository.findById(Long.valueOf(dog.getBreed().getBreedID()));
-//        if (breed.isPresent()) {
-//            int averageWeight = breed.get().getAverageWeight();
-//            if (dog.getWeight() < averageWeight - 2) {
-//                return "underweight";
-//            } else if (dog.getWeight() > averageWeight + 2) {
-//                return "overweight";
-//            } else {
-//                return "healthy";
-//            }
-//        } else {
-//            return "Breed information not available";
-//        }
-//    }
+    public List<Dog> findDogsByUser(User user) {
+        return dogRepository.findByUser(user);
+    }
+
+
+
 }

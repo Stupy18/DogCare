@@ -1,0 +1,70 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .page-title {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .add-dog-btn {
+    display: block;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    outline: none;
+    margin: 0 auto 20px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+  }
+  
+  .add-dog-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .dog-list h2 {
+    color: #555;
+    margin-bottom: 20px;
+  }
+  
+  .dog-card {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  
+  .card-img-top {
+    height: 250px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  
+  .card-body {
+    text-align: center;
+  }
+  
+  .card-title {
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .card-text {
+    color: #666;
+    margin-bottom: 5px;
+  }
+  
+  .card-text strong {
+    color: #333;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  

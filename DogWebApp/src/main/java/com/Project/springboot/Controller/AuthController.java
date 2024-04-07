@@ -33,7 +33,7 @@ public class AuthController {
             userService.updateLastLogin(Long.valueOf(user.getUserID()));
             // Assuming you have some token generation logic for session management
             String token = authenticationService.generateToken(user);
-            return ResponseEntity.ok(new LoginResponse(token, "Login successful"));
+            return ResponseEntity.ok(new LoginResponse(token, "Login successful", user.getUserID()));
         } catch (AuthenticationException e) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Login failed: " + e.getMessage());
         }

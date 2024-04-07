@@ -20,7 +20,7 @@ export class LoginComponent {
   navigateToRegister() {
     this.router.navigateByUrl('/register'); // Change '/register' to match your register route path
   }
-  
+
   Login() {
     console.log(this.email);
     console.log(this.password);
@@ -34,7 +34,8 @@ export class LoginComponent {
       (resultData: any) => {
         console.log(resultData);
         if (resultData.token) {
-          localStorage.setItem('token', resultData.token); // Save the token
+          localStorage.setItem('token', resultData.token); 
+          localStorage.setItem('userID', resultData.userID);
           this.router.navigateByUrl('/home');
         }
       },

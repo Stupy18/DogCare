@@ -1,7 +1,9 @@
 package com.Project.springboot.Controller;
 
 import com.Project.springboot.BaseClasses.Dog;
+import com.Project.springboot.BaseClasses.User;
 import com.Project.springboot.Dto.DogDTO;
+import com.Project.springboot.Repository.UserRepository;
 import com.Project.springboot.Service.DogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -9,16 +11,21 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
+@CrossOrigin(origins = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 @RequestMapping("/dogs")
 public class DogController {
 
     private final DogService dogService;
+    private final UserRepository userRepository;
 
     @Autowired
-    public DogController(DogService dogService) {
+    public DogController(DogService dogService, UserRepository userRepository) {
+
         this.dogService = dogService;
+        this.userRepository = userRepository;
     }
 
     @PostMapping
@@ -31,6 +38,17 @@ public class DogController {
     public ResponseEntity<Dog> createDogForUser(@PathVariable Long userId, @RequestBody DogDTO dogDTO) {
         Dog dog = dogService.addDogForUser(userId, dogDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(dog);
+    }
+
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<List<Dog>> getDogsByUserId(@PathVariable Long userId) {
+        Optional<User> user = userRepository.findById(userId);
+        if (user.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+
+        List<Dog> dogs = dogService.findDogsByUser(user.get());
+        return ResponseEntity.ok(dogs);
     }
 
 
