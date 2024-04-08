@@ -12,6 +12,7 @@ import { AddDogFormComponent } from '../add-dog-form/add-dog-form.component';
 export class HomeComponent implements OnInit {
   dogs: any[] = [];
   showAddDogModal: boolean = false;
+  selectedDog: any = null;
   @ViewChild(AddDogFormComponent) addDogForm!: AddDogFormComponent;
 
   constructor(
@@ -47,6 +48,10 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  selectDog(dog: any): void {
+    this.selectedDog = dog;
+  }
+
   onAddDog(): void {
     console.log('Opening Add Dog modal.'); // Log modal opening
     this.showAddDogModal = true; // Show the modal
@@ -65,5 +70,41 @@ export class HomeComponent implements OnInit {
       console.log('Refreshing dogs list for user ID:', userId); // Log the refresh attempt
       this.fetchDogs(userId); // Refresh the list of dogs
     }
+  }
+
+  onEditDog(dog: any): void {
+    // Implement dog editing logic here
+  }
+  
+
+  onDeleteDog(dogName: string): void {
+    const userId = this.userService.getUserId(); // Assuming you have a method to get the current user's ID
+    if (!userId) {
+      console.error('User ID not found');
+      return;
+    }
+  
+    this.dogService.getDogByUserIdAndName(userId, dogName).subscribe({
+      next: (dog) => {
+        if (dog && dog.id) {
+          this.dogService.deleteDog(dog.id).subscribe({
+            next: () => {
+              // Successfully deleted the dog, update the list
+              this.dogs = this.dogs.filter(d => d.name !== dogName);
+              console.log('Dog successfully deleted');
+              // Close modal or refresh data as needed
+            },
+            error: (error) => {
+              console.error('Error deleting the dog:', error);
+            }
+          });
+        } else {
+          console.log('Dog not found:', dogName);
+        }
+      },
+      error: (error) => {
+        console.error('Error fetching dog by name:', error);
+      }
+    });
   }
 }

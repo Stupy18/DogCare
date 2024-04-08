@@ -7,19 +7,24 @@
       <h2>Your Dogs</h2>
       <div *ngIf="dogs.length > 0; else noDogs">
         <div class="row">
-          <div *ngFor="let dog of dogs" class="col-lg-4 mb-4">
+          <div *ngFor="let dog of dogs" class="col-lg-4 mb-4" (click)="selectDog(dog)">
             <div class="card dog-card h-100">
               <img [src]="dog.imageURL" class="card-img-top" alt="{{ dog.name }}">
               <div class="card-body">
                 <h5 class="card-title">{{ dog.name }}</h5>
-                <p class="card-text"><strong>Breed:</strong> {{ dog.breedName }}</p>
-                <p class="card-text"><strong>Age:</strong> {{ dog.age }}</p>
-                <p class="card-text"><strong>Weight:</strong> {{ dog.weight }} lbs</p>
-                <p class="card-text"><strong>Height:</strong> {{ dog.height }} ft</p>
               </div>
             </div>
           </div>
         </div>
+        
+        <!-- Dog Details Modal -->
+        <app-dog-details 
+          [dog]="selectedDog" 
+          *ngIf="selectedDog" 
+          (close)="selectedDog = null"
+          (edit)="onEditDog($event)"
+          (delete)="onDeleteDog($event)">
+      </app-dog-details>
       </div>
       <ng-template #noDogs>
         <p class="text-center mt-4">No dogs found for this user.</p>

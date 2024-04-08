@@ -77,4 +77,11 @@ public class DogController {
         dogService.deleteDog(id);
         return ResponseEntity.ok().build();
     }
+
+    @GetMapping("/user/{userId}/name/{name}")
+    public ResponseEntity<Dog> getDogByUserIdAndName(@PathVariable Long userId, @PathVariable String name) {
+        Optional<Dog> dog = dogService.findDogByUserIdAndName(userId, name);
+        return dog.map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
+    }
 }

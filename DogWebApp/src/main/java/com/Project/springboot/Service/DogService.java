@@ -80,6 +80,13 @@ public class DogService {
         return dogRepository.findByUser(user);
     }
 
+    public Optional<Dog> findDogByUserIdAndName(Long userId, String name) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new RuntimeException("User not found with id: " + userId));
+
+        return dogRepository.findByUserAndName(user, name);
+    }
+
 
 
 }

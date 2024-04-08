@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AddDogFormComponent } from './add-dog-form/add-dog-form.component';
+import { DogDetailsComponent } from './dog-details/dog-details.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { AddDogFormComponent } from './add-dog-form/add-dog-form.component';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    AddDogFormComponent
+    AddDogFormComponent,
+    DogDetailsComponent,
   ],
   imports: [
     BrowserModule,
