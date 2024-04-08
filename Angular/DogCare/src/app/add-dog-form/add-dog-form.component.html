@@ -1,0 +1,32 @@
+<div class="modal" [ngStyle]="{'display': show ? 'block' : 'none'}">
+  <div class="modal-content">
+    <span class="close-btn" (click)="closeModal()">&times;</span>
+    <form (submit)="addDog()">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" [(ngModel)]="newDog.name" name="name" placeholder="Name" required>
+      </div>
+      <div class="form-group">
+        <label for="breedName">Breed:</label>
+        <input type="text" [(ngModel)]="newDog.breedName" name="breedName" placeholder="Breed" required>
+      </div>
+      <div class="form-group">
+        <label for="age">Age:</label>
+        <input type="number" [(ngModel)]="newDog.age" name="age" placeholder="Age" required>
+      </div>
+      <div class="form-group">
+        <label for="weight">Weight:</label>
+        <input type="number" [(ngModel)]="newDog.weight" name="weight" placeholder="Weight" required>
+      </div>
+      <div class="form-group">
+        <label for="height">Height:</label>
+        <input type="number" [(ngModel)]="newDog.height" name="height" placeholder="Height" required>
+      </div>
+      <div class="form-group">
+        <label for="imageURL">Image URL:</label>
+        <input type="text" [(ngModel)]="newDog.imageURL" name="imageURL" placeholder="Image URL">
+      </div>
+      <button type="submit" class="btn btn-primary">Add Dog</button>
+    </form>
+  </div>
+</div>
