@@ -77,22 +77,28 @@ export class HomeComponent implements OnInit {
   }
   
 
-  onDeleteDog(dogName: string): void {
-    const userId = this.userService.getUserId(); // Assuming you have a method to get the current user's ID
+  onDeleteDog(dog: any): void {
+    const userId = this.userService.getUserId();
     if (!userId) {
       console.error('User ID not found');
       return;
     }
   
+    if (!dog || !dog.name) {
+      console.error('Dog name not provided');
+      return;
+    }
+  
+    const dogName = dog.name; // Ensure this is a string
+  
     this.dogService.getDogByUserIdAndName(userId, dogName).subscribe({
-      next: (dog) => {
-        if (dog && dog.id) {
-          this.dogService.deleteDog(dog.id).subscribe({
+      next: (dogId) => {
+        if (dogId) {
+          this.dogService.deleteDog(dogId).subscribe({
             next: () => {
-              // Successfully deleted the dog, update the list
               this.dogs = this.dogs.filter(d => d.name !== dogName);
               console.log('Dog successfully deleted');
-              // Close modal or refresh data as needed
+              this.selectedDog = null; // This line closes the pop-up
             },
             error: (error) => {
               console.error('Error deleting the dog:', error);
@@ -103,8 +109,9 @@ export class HomeComponent implements OnInit {
         }
       },
       error: (error) => {
-        console.error('Error fetching dog by name:', error);
+        console.error('Error fetching dog ID by name:', error);
       }
     });
-  }
+}
+
 }

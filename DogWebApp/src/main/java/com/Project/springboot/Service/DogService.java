@@ -81,9 +81,7 @@ public class DogService {
     }
 
     public Optional<Long> findDogIdByUserIdAndName(Long userId, String name) {
-        User user = userRepository.findById(userId)
-                .orElseThrow(() -> new RuntimeException("User not found with id: " + userId));
-        return dogRepository.findDogIdByUserAndName(user, name);
+        return dogRepository.findDogIdByUserIdAndName(userId, name);
     }
 
 

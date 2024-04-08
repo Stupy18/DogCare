@@ -42,7 +42,7 @@ export class DogService {
   }
 
   getDogByUserIdAndName(userId: number, name: string): Observable<any> {
-    return this.http.get<any>(`http://localhost:8080/dogs/user/${userId}/name/${name}`);
+    return this.http.get<any>(`http://localhost:8080/dogs/user/${userId}/name/${name}/id`);
   }
 
   deleteDog(dogId: number): Observable<any> {

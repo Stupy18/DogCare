@@ -1,94 +1,84 @@
+/* Dog Details Modal Overlay */
 .dog-details-modal {
   display: flex;
   position: fixed;
-  z-index: 2;
+  z-index: 1050; /* High z-index to ensure modal is on top */
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  align-items: center;
-  justify-content: center;
+  align-items: center; /* Center the modal vertically */
+  justify-content: center; /* Center the modal horizontally */
+  padding: 20px; /* Add padding around the modal for smaller screens */
 }
 
+/* Dark overlay behind the modal for focus and contrast */
 .modal-overlay {
-  position: absolute;
+  position: fixed; /* Ensure it covers the whole screen */
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.75); /* Darker overlay */
+  backdrop-filter: blur(10px); /* More pronounced blur effect */
 }
 
+/* Modal content styling */
 .modal-content {
   position: relative;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  width: 80%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 20px; /* Rounded corners for the modal */
+  width: auto; /* Adjust width automatically */
+  max-width: 1000px; /* Maximum width */
+  box-shadow: 0 12px 24px rgba(0,0,0,0.2); /* Deeper shadow for prominence */
 }
 
+/* Close button in the top-right corner of the modal */
 .close-btn {
   position: absolute;
-  top: 10px;
-  right: 20px;
+  top: 15px;
+  right: 15px;
+  font-size: 30px; /* Larger close button */
   cursor: pointer;
+  color: #444; /* Darker color for contrast */
 }
 
+/* Modal body section containing all the details */
 .modal-body {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
-  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr; /* Proportional grid columns */
+  gap: 30px; /* Space between columns */
+  align-items: start;
 }
 
+/* Styling for breed and dog info */
 .dog-info, .breed-info {
-  flex: 1;
   text-align: left;
-  order: 3; /* User's dog info on the right */
+  padding: 10px; /* Spacing around text */
 }
 
+/* Image styling with responsive max-width */
 .dog-image {
-  order: 2; /* Image in the middle */
-  width: 300px; /* Adjust as necessary */
-  height: auto;
-  margin: 0 20px;
-  border-radius: 10px;
+  max-width: 100%; /* Image will resize responsively */
+  border-radius: 20px; /* Rounded corners for the image */
 }
 
-.breed-info {
-  order: 1; /* Breed info on the left */
-}
-
+/* Footer with buttons */
 .modal-footer {
   display: flex;
-  justify-content: space-around;
-  width: 100%;
-  margin-top: 20px;
+  gap: 10px; /* Space between buttons */
+  justify-content: center; /* Center buttons */
+  padding-top: 20px; /* Space above the buttons */
 }
 
+/* Button styles */
 .btn {
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-  font-weight: bold;
+  padding: 10px 25px; /* Larger padding for a touch-friendly design */
+  font-size: 18px; /* Larger font size for readability */
+  border-radius: 10px; /* Soft rounded corners */
 }
 
-.btn-primary {
-  background-color: #007bff;
-  color: white;
+/* Button hover and active styles for interactivity */
+.btn:hover, .btn:active {
+  transform: translateY(-2px); /* Slight raise effect */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow */
 }
-
-.btn-danger {
-  background-color: #dc3545;
-  color: white;
-}
-
-.btn-primary:hover, .btn-danger:hover {
-  opacity: 0.8;
-}
-
-/* Add additional styling as necessary */

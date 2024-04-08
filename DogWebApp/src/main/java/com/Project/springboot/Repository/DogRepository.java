@@ -14,7 +14,7 @@ import java.util.Optional;
 public interface DogRepository extends JpaRepository<Dog, Long> {
 
     List<Dog> findByUser(User user);
-    @Query("SELECT d.dogID FROM Dog d WHERE d.user = :user AND d.name = :name")
-    Optional<Long> findDogIdByUserAndName(@Param("user") User user, @Param("name") String name);
+    @Query("SELECT d.dogID FROM Dog d WHERE d.user.userID = :userId AND d.name = :name")
+    Optional<Long> findDogIdByUserIdAndName(@Param("userId") Long userId, @Param("name") String name);
 
 }
