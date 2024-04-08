@@ -1,10 +1,47 @@
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+  border-radius: 5px; /* Rounded edges */
+  -webkit-appearance: none; /* Removes default chrome and safari style */
+  -moz-appearance: none; /* Removes default style Firefox */
+  appearance: none; /* Removes default style for IE */
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="number"]:focus,
+.form-group select:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+.form-group input[type="text"]:hover,
+.form-group input[type="number"]:hover,
+.form-group select:hover {
+  background-color: #ccc; /* Consistent hover effect */
+}
+
+/* Custom arrow for select */
+.form-group select {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140" width="20" height="20" fill="%23666"><polygon points="70,90 40,60 100,60"></polygon></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px top 50%;
+  background-size: 20px;
+}
+
+/* Additional styles */
 .modal-content {
   background-color: #fefefe;
-  margin: 5% auto; /* Centering the modal */
+  margin: 5% auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 50%; /* Make the modal narrower for a better form display */
-  border-radius: 15px; /* Rounded corners for the modal */
+  width: 50%;
+  border-radius: 15px;
 }
 
 .form-group label {
@@ -13,26 +50,8 @@
   font-weight: bold;
 }
 
-.form-group input[type="text"],
-.form-group input[type="number"] {
-  width: 100%;
-  padding: 10px;
-  margin: 5px 0 22px 0;
-  display: inline-block;
-  border: none;
-  background: #f1f1f1;
-  border-radius: 5px; /* Rounded edges for input */
-}
-
-.form-group input[type="text"]:focus,
-.form-group input[type="number"]:focus {
-  background-color: #ddd;
-  outline: none;
-}
-
-/* Styling the submit button to match the "Add Dog" button */
 .btn-primary {
-  background-color: #4CAF50; /* Green background to match the add dog button */
+  background-color: #4CAF50;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -40,12 +59,12 @@
   cursor: pointer;
   width: 100%;
   opacity: 0.9;
-  border-radius: 25px; /* Rounded corners */
+  border-radius: 25px;
 }
 
 .btn-primary:hover {
   opacity: 1;
-  background-color: #45a049; /* Darker shade of green on hover */
+  background-color: #45a049;
 }
 
 .close-btn {
