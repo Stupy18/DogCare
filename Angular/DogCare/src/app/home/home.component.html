@@ -1,6 +1,8 @@
 <div class="container mt-5">
-    <h1 class="page-title">Welcome to DogCare</h1>
-    <button class="add-dog-btn" (click)="onAddDog()">Add Dog</button>
+    <h1 class="page-title"><u><b>Welcome to DogCare</b></u></h1>
+    <button type="button" class="btn btn-primary" (click)="addDogForm.openModal()">Add Dog</button>
+    <app-add-dog-form #addDogForm (dogAdded)="handleDogAdded($event)"></app-add-dog-form>
+
     <div class="dog-list mt-4">
       <h2>Your Dogs</h2>
       <div *ngIf="dogs.length > 0; else noDogs">

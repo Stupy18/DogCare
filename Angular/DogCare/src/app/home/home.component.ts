@@ -1,7 +1,8 @@
-import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { DogService } from '../services/dog.service';
 import { Router } from '@angular/router';
+import { UserService } from '../services/user.service';
+import { AddDogFormComponent } from '../add-dog-form/add-dog-form.component';
 
 @Component({
   selector: 'app-home',
@@ -10,44 +11,59 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   dogs: any[] = [];
-  userId: number | null = null; // Initialize userId to null
+  showAddDogModal: boolean = false;
+  @ViewChild(AddDogFormComponent) addDogForm!: AddDogFormComponent;
 
   constructor(
-    private dogService: DogService, 
-    private router: Router, 
-    @Inject(PLATFORM_ID) private platformId: Object
+    private dogService: DogService,
+    private userService: UserService, // Inject UserService
+    private router: Router,
+
   ) {}
 
-  ngOnInit() {
-    if (isPlatformBrowser(this.platformId)) {
-      this.userId = this.getUserId();
-      console.log('User ID:', this.userId); // Log the user ID for debugging
-      if (this.userId) {
-        this.dogService.getDogsByUserId(this.userId).subscribe(
-          data => {
-            console.log('Dogs data:', data); // Log the data for debugging
-            this.dogs = data;
-          },
-          error => {
-            console.error('There was an error fetching dogs:', error);
-          }
-        );
-      } 
-    }
-  }
+  ngOnInit(): void {
+    const userId = this.userService.getUserId(); // Use UserService to get the user ID
+    console.log(this.showAddDogModal);
   
-  getUserId(): number | null {
-    // Get the user ID directly, without parsing it as JSON, since it's not an object.
-    const userID = localStorage.getItem('userID');
-    if (userID) {
-      return Number(userID); // Convert to number if necessary
+    if (!userId) {
+      // If no user ID found, redirect to login
+      console.log('No user ID found, redirecting to login.');
+      this.router.navigateByUrl(''); // Redirect to the login page
+    } else {
+      // If a user ID is found, proceed to fetch dogs for the user
+      console.log('User ID:', userId); // Log the user ID for debugging
+      console.log('Fetching dogs for user ID:', userId); // Log fetching attempt
+      this.fetchDogs(userId);
     }
-    console.log('No user data in local storage, returning null.');
-    return null;
   }
 
-  onAddDog() {
-    // Placeholder for add dog functionality
-    console.log('Add Dog button clicked');
+  fetchDogs(userId: number): void {
+    this.dogService.getDogsByUserId().subscribe({
+      next: (dogs) => {
+        console.log('Dogs fetched:', dogs); // Log fetched dogs
+        this.dogs = dogs;
+      },
+      error: (error) => console.error('Error fetching dogs:', error),
+    });
   }
-}  
+
+  onAddDog(): void {
+    console.log('Opening Add Dog modal.'); // Log modal opening
+    this.showAddDogModal = true; // Show the modal
+    console.log(this.showAddDogModal);
+  }
+
+  closeModal(): void {
+    this.showAddDogModal = false; // Close the modal, called from the child component
+  }
+
+  handleDogAdded(dog: any): void {
+    console.log('Dog added:', dog); // Log the added dog
+    this.closeModal() // Hide the modal
+    const userId = this.userService.getUserId();
+    if (userId) {
+      console.log('Refreshing dogs list for user ID:', userId); // Log the refresh attempt
+      this.fetchDogs(userId); // Refresh the list of dogs
+    }
+  }
+}

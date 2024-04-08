@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,10 @@ export class LoginComponent {
   password: string ="";
 
 
-  constructor(private router: Router,private http: HttpClient) {}
+  constructor(
+    private router: Router,
+    private http: HttpClient,
+    private userService: UserService) {}
  
 
   navigateToRegister() {
@@ -35,7 +39,7 @@ export class LoginComponent {
         console.log(resultData);
         if (resultData.token) {
           localStorage.setItem('token', resultData.token); 
-          localStorage.setItem('userID', resultData.userID);
+          this.userService.setUserId(resultData.userID);
           this.router.navigateByUrl('/home');
         }
       },
