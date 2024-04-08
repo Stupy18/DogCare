@@ -1,0 +1,34 @@
+<div class="dog-details-modal" *ngIf="dog">
+  <div class="modal-overlay" (click)="closeModal()"></div>
+  <div class="modal-content">
+    <span class="close-btn" (click)="closeModal()">&times;</span>
+    <div class="modal-body">
+      <!-- Breed Info on the Top Left -->
+      <div class="breed-info">
+        <h3>Breed Info</h3>
+        <p><strong>Name:</strong> {{ breedInfo?.name }}</p>
+        <p><strong>Bred for:</strong> {{ breedInfo?.bred_for }}</p>
+        <p><strong>Life span:</strong> {{ breedInfo?.life_span }}</p>
+        <p><strong>Temperament:</strong> {{ breedInfo?.temperament }}</p>
+        <p><strong>Height:</strong> {{ breedInfo?.height?.metric }} cm</p>
+        <p><strong>Weight:</strong> {{ breedInfo?.weight?.metric }} kg</p>
+        <!-- Add more API breed info as needed -->
+      </div>
+      <!-- Dog Image in the Top Middle -->
+      <img [src]="dog.imageURL" alt="{{ dog.name }}" class="dog-image">
+      <!-- User's Dog Info on the Top Right -->
+      <div class="dog-info">
+        <h2>{{ dog.name }}</h2>
+        <p><strong>Breed:</strong> {{ dog.breedName }}</p>
+        <p><strong>Age:</strong> {{ dog.age }} years</p>
+        <p><strong>Weight:</strong> {{ dog.weight }} kg</p>
+        <p><strong>Height:</strong> {{ dog.height }} cm</p>
+        <!-- Add more user's dog stats as needed -->
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" (click)="editDog(dog)">Edit</button>
+        <button class="btn btn-danger" (click)="deleteDog(dog)">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>

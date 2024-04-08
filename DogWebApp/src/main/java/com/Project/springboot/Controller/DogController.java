@@ -78,10 +78,10 @@ public class DogController {
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping("/user/{userId}/name/{name}")
-    public ResponseEntity<Dog> getDogByUserIdAndName(@PathVariable Long userId, @PathVariable String name) {
-        Optional<Dog> dog = dogService.findDogByUserIdAndName(userId, name);
-        return dog.map(ResponseEntity::ok)
+    @GetMapping("/user/{userId}/name/{name}/id")
+    public ResponseEntity<Long> getDogIdByUserIdAndName(@PathVariable Long userId, @PathVariable String name) {
+        Optional<Long> dogId = dogService.findDogIdByUserIdAndName(userId, name);
+        return dogId.map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 }
