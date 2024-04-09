@@ -6,32 +6,27 @@ import lombok.Setter;
 
 import java.util.Date;
 
-
-
 @Getter
 @Setter
 @Entity
 public class ActivityLog {
 
     @Id
-    @Setter
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer activityID;
+    private Integer id;
 
-    @Setter
-    @Getter
-    @Enumerated(EnumType.STRING) // Use EnumType.STRING to store the enum values as strings
-    @Column(nullable = false, length = 255)
-    private ActivityType activityType;
 
-    @Getter
-    @Setter
+    @ManyToOne
+    @JoinColumn(name = "dogId", nullable = false)
+    private Dog dog;
+
+    @ManyToOne
+    @JoinColumn(name = "activityId", nullable = false)
+    private Activity activity;
+
     @Column(nullable = false)
     private Date timestamp;
 
-    @Setter
-    @Getter
-    @Column(nullable = true, length = 255)
+    @Column(length = 255)
     private String notes;
-
 }

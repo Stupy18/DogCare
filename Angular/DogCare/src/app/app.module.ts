@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AddDogFormComponent } from './add-dog-form/add-dog-form.component';
 import { DogDetailsComponent } from './dog-details/dog-details.component';
+import { AddActivityComponent } from './add-activity/add-activity.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { DogDetailsComponent } from './dog-details/dog-details.component';
     HomeComponent,
     AddDogFormComponent,
     DogDetailsComponent,
+    AddActivityComponent,
   ],
   imports: [
     BrowserModule,

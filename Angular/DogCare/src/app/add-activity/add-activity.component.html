@@ -1,0 +1,29 @@
+<div *ngIf="show" class="add-activity-popup">
+  <div class="popup-content modal-content">
+    <span (click)="close()" class="close-btn">&times;</span>
+    <h2>Activity Type:</h2>
+
+    <!-- Radio buttons for selecting activity -->
+    <div class="form-group">
+      <!-- <label>Activity:</label><br> -->
+      <input type="radio" name="activity" [(ngModel)]="selectedActivityId" [value]="1"> Walk
+      <input type="radio" name="activity" [(ngModel)]="selectedActivityId" [value]="2"> Feed
+      <input type="radio" name="activity" [(ngModel)]="selectedActivityId" [value]="3"> Vet Visit
+    </div>
+
+    <div class="form-group">
+      <label for="dog">Dog:</label>
+      <select [(ngModel)]="selectedDogId" name="dog" class="form-control" required>
+        <option *ngFor="let dog of dogs" [value]="dog.dogID">{{ dog.name }}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="notes">Notes:</label>
+      <textarea [(ngModel)]="notes" name="notes" class="form-control" placeholder="Enter notes"></textarea>
+    </div>
+
+    <button (click)="addActivity()" class="btn btn-primary">Add</button>
+    <!-- <button (click)="close()" class="btn btn-secondary">Close</button> -->
+  </div>
+</div>

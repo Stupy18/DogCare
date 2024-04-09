@@ -2,6 +2,8 @@
     <h1 class="page-title"><u><b>Welcome to DogCare</b></u></h1>
     <button type="button" class="btn btn-primary" (click)="addDogForm.openModal()">Add Dog</button>
     <app-add-dog-form #addDogForm (dogAdded)="handleDogAdded($event)"></app-add-dog-form>
+    <button type="button" class="btn btn-info" (click)="openAddActivityModal()">Add Activity</button>
+    <app-add-activity [show]="showAddActivity"></app-add-activity>
 
     <div class="dog-list mt-4">
       <h2>Your Dogs</h2>

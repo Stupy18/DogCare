@@ -23,6 +23,15 @@ public class DogWebAppApplication {
 				registry.addMapping("/users").allowedOrigins("http://localhost:8080").allowedMethods("POST", "GET");
 				registry.addMapping("/users/{id}").allowedOrigins("http://localhost:8080").allowedMethods("POST", "DELETE");
 				registry.addMapping("/auth/login").allowedOrigins("http://localhost:8080").allowedMethods("POST");
+				registry.addMapping("/activity-logs") // Adjust the mapping as needed
+						.allowedOrigins("http://localhost:4200") // Allow requests from this origin
+						.allowedMethods("GET", "POST", "PUT", "DELETE") // Allow these HTTP methods
+						.allowedHeaders("*"); // Allow all headers
+				registry.addMapping("/activities") // Adjust the mapping as needed
+						.allowedOrigins("http://localhost:4200") // Allow requests from this origin
+						.allowedMethods("GET", "POST", "PUT", "DELETE") // Allow these HTTP methods
+						.allowedHeaders("*"); // Allow all headers
+
 			}
 		};
 
