@@ -7,11 +7,14 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 
 @Getter
 @Setter
 @Entity
-@JsonIgnoreProperties("user")
+@JsonIgnoreProperties({"user", "activityLogs"}) // Add "activityLogs" to the list
+
 public class Dog {
 
     @Id
@@ -54,6 +57,9 @@ public class Dog {
     @JoinColumn(name = "userID", nullable = false)
 //    @JsonBackReference
     private User user;
+
+    @OneToMany(mappedBy = "dog")
+    private List<ActivityLog> activityLogs;
 
 //    // Breed relationship
 //    @ManyToOne

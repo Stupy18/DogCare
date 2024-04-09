@@ -3,6 +3,7 @@ import { DogService } from '../services/dog.service';
 import { Router } from '@angular/router';
 import { UserService } from '../services/user.service';
 import { AddDogFormComponent } from '../add-dog-form/add-dog-form.component';
+import { AddActivityComponent } from '../add-activity/add-activity.component';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +14,9 @@ export class HomeComponent implements OnInit {
   dogs: any[] = [];
   showAddDogModal: boolean = false;
   selectedDog: any = null;
+  showAddActivity = false;
   @ViewChild(AddDogFormComponent) addDogForm!: AddDogFormComponent;
+  @ViewChild(AddActivityComponent) addActivityComponent!: AddActivityComponent;
 
   constructor(
     private dogService: DogService,
@@ -60,6 +63,9 @@ export class HomeComponent implements OnInit {
 
   closeModal(): void {
     this.showAddDogModal = false; // Close the modal, called from the child component
+  }
+  openAddActivityModal(): void {
+    this.addActivityComponent.show = true;
   }
 
   handleDogAdded(dog: any): void {
