@@ -1,49 +1,109 @@
 .gradient-custom-2 {
-    background: #fccb90;
-    background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
-    background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
-  }
-  
-  .gradient-form {
-    height: 100vh !important;
-  }
-  
-  .card {
-    border: none;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .card form {
-    max-width: 400px;
-    margin: auto;
-  }
-  
-  .form-outline input.form-control {
-    border: 1px solid #ced4da;
-    border-radius: 0.25rem;
-    padding: 0.375rem 0.75rem;
-  }
-  
-  .form-outline input.form-control:focus {
-    border-color: #4d94ff;
-    box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
-  }
-  
-  .btn-primary {
-    background-color: #007bff;
-    border-color: #007bff;
-  }
-  
-  .btn-primary:hover {
-    background-color: #0056b3;
-    border-color: #0056b3;
-  }
-  
-  .text-muted {
-    color: #6c757d;
-  }
-  
-  .text-muted:hover {
-    color: #495057;
-  }
-  
+  background: #fccb90;
+  background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+  background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+}
+
+.gradient-form {
+  height: 100vh !important;
+  display: flex;
+}
+
+.gradient-form:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://media.istockphoto.com/id/922637404/vector/dog-paw-print-seamless-template-for-your-design-wrapping-paper-card-poster-banner-flyer.jpg?s=612x612&w=0&k=20&c=eVW2LY0e1WMIDANzfLKBZd0YKYndv6Cb0-2_LfK9J_A='); /* Replace 'your-background-image-url.jpg' with your actual background image URL */
+  background-size: cover;
+  background-position: center;
+  filter: blur(6px); /* Adjust the blur radius as needed */
+  opacity: 0.9; /* Adjust the opacity value (0 to 1) as needed */
+}
+.container {
+  position: relative; /* Ensure the container stays on top of the pseudo-element */
+  z-index: 1; /* Ensure the container stays on top of the pseudo-element */
+}
+
+.card {
+  margin: auto; /* Center the card in the available space */
+  height: 100%; /* Take full height of its parent */
+  display: flex;
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+  border: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card form {
+  max-width: 400px;
+  margin: auto;
+}
+
+.gradient-custom-2 {
+  background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+  flex-grow: 1; /* Make gradient section fill the remaining space */
+}
+
+.form-outline input.form-control {
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  padding: 0.375rem 0.75rem;
+}
+
+.form-outline input.form-control:focus {
+  border-color: #4d94ff;
+  box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+.text-muted {
+  color: #6c757d;
+}
+
+.text-muted:hover {
+  color: #495057;
+}
+
+.text-white {
+  font-family: 'Roboto', sans-serif; 
+  color: #fff; 
+  padding: 3px 12px 4px; 
+  margin: 12px 48px; 
+}
+
+.text-white h4 {
+  font-size: 50px; 
+  font-weight: 700; 
+  margin-bottom: 16px; 
+}
+
+.text-white p {
+  font-size: 22px; 
+  margin-bottom: 0; 
+}
+.card-body h4 {
+  font-size: 50px; /*REGISTER TEXT*/
+}
+.form-control {
+  font-size: 20px; /* Larger font size makes text easier to read */
+  padding: 15px; /* Larger padding makes the input taller */
+}
+.btn {
+  font-size: 18px; /* Increase font size for better readability */
+  padding: 10px 24px; /* Increase padding for a larger button */
+}
+.card-body {
+  margin-top: -30px; /* Adjust top margin to move the form up */
+}
