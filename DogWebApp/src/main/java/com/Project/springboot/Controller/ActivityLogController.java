@@ -36,6 +36,14 @@ public class ActivityLogController {
         }
         return ResponseEntity.ok(logs);
     }
+    @GetMapping
+    public ResponseEntity<List<ActivityLog>> getAllActivityLogs() {
+        List<ActivityLog> logs = activityLogService.getAllActivityLogs();
+        if (logs.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(logs);
+    }
 
     // Additional endpoints for deleting or updating activity logs can be implemented here
 }

@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AddDogFormComponent } from './add-dog-form/add-dog-form.component';
 import { DogDetailsComponent } from './dog-details/dog-details.component';
 import { AddActivityComponent } from './add-activity/add-activity.component';
+import { PlannedActivitiesButtonComponent } from './planned-activities-button/planned-activities-button.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { AddActivityComponent } from './add-activity/add-activity.component';
     AddDogFormComponent,
     DogDetailsComponent,
     AddActivityComponent,
+    PlannedActivitiesButtonComponent,
   ],
   imports: [
     BrowserModule,

@@ -19,15 +19,20 @@ export class AddActivityComponent {
   constructor(private http: HttpClient, private userService: UserService, private dogService: DogService) {}
 
   ngOnInit() {
-    const userId = this.userService.getUserId();
-    if (userId !== null) {
-      this.fetchActivities();
-      this.fetchDogs(userId);
-    }
+    // const userId = this.userService.getUserId();
+    // if (userId !== null) {
+    //   this.fetchActivities();
+    //   this.fetchDogs(userId);
+    // }
+    this.fetchActivities();
   }
   
   
   fetchActivities() {
+    const userId = this.userService.getUserId();
+    if (userId !== null) {
+      this.fetchDogs(userId);
+    }
     this.http.get<any[]>('http://localhost:8080/activities').subscribe(data => {
       this.activities = data;
       console.log("Fetched ActivitiesAC = ", this.activities);

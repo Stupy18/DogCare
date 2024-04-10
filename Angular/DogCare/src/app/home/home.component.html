@@ -4,6 +4,9 @@
     <app-add-dog-form #addDogForm (dogAdded)="handleDogAdded($event)"></app-add-dog-form>
     <button type="button" class="btn btn-info" (click)="openAddActivityModal()">Add Activity</button>
     <app-add-activity [show]="showAddActivity"></app-add-activity>
+    <button type="button" class="btn btn-primary" (click)="plannedActivitiesButton.showPlannedActivities()">Show Planned Activities</button>
+    <app-planned-activities-button></app-planned-activities-button>
+
 
     <div class="dog-list mt-4">
       <h2>Your Dogs</h2>
