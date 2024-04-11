@@ -11,6 +11,9 @@
     <button type="button" class="btn btn-info add-dog-btn" (click)="openAddActivityModal()">Add Activities for your Dog(s)</button>
     <app-add-activity [show]="showAddActivity"></app-add-activity>
     <button type="button" class="btn btn-primary logout-button" (click)="logout()">Logout</button>
+    <button type="button" class="btn btn-primary" (click)="plannedActivitiesButton.showPlannedActivities()">Show Planned Activities</button>
+    <app-planned-activities-button></app-planned-activities-button>
+
 
     </div>
 </div>

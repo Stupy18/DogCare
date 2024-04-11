@@ -58,7 +58,8 @@ public class Dog {
 //    @JsonBackReference
     private User user;
 
-    @OneToMany(mappedBy = "dog")
+
+    @OneToMany(mappedBy = "dog", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ActivityLog> activityLogs;
 
 //    // Breed relationship

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { UserService } from '../services/user.service';
 import { AddDogFormComponent } from '../add-dog-form/add-dog-form.component';
 import { AddActivityComponent } from '../add-activity/add-activity.component';
+import { PlannedActivitiesButtonComponent } from '../planned-activities-button/planned-activities-button.component';
 
 @Component({
   selector: 'app-home',
@@ -17,6 +18,7 @@ export class HomeComponent implements OnInit {
   showAddActivity = false;
   @ViewChild(AddDogFormComponent) addDogForm!: AddDogFormComponent;
   @ViewChild(AddActivityComponent) addActivityComponent!: AddActivityComponent;
+  @ViewChild(PlannedActivitiesButtonComponent) plannedActivitiesButton!: PlannedActivitiesButtonComponent;
 
   constructor(
     private dogService: DogService,
@@ -73,7 +75,9 @@ export class HomeComponent implements OnInit {
   }
 
   handleDogAdded(dog: any): void {
-    console.log('Dog added:', dog); // Log the added dog
+    this.dogs.push(dog)
+    console.log('Dog added:', dog); 
+    this.dogs.push(dog)// Log the added dog
     this.closeModal() // Hide the modal
     const userId = this.userService.getUserId();
     if (userId) {
@@ -136,6 +140,8 @@ export class HomeComponent implements OnInit {
     } else {
       console.log('No changes made.');
     }
+    // this.fetchDogs(userId);
+    window.location.reload(); // Reload the page to reflect the change
   }
   
 

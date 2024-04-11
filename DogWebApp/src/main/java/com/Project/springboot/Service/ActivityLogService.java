@@ -41,5 +41,9 @@ public class ActivityLogService {
         return activityLogRepository.findByDogId(dogId);
     }
 
+    public List<ActivityLog> getAllActivityLogs() {
+        return activityLogRepository.findAll();
+    }
+
     // Additional methods like removing an activity or querying logs can be added here.
 }
