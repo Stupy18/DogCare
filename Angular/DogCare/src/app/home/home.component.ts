@@ -180,6 +180,7 @@ export class HomeComponent implements OnInit {
         console.error('Error fetching dog ID by name:', error);
       }
     });
+    window.location.reload();
 }
 
 }

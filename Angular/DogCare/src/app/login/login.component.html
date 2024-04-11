@@ -1,37 +1,37 @@
-<section class="gradient-form d-flex" >
-  <div class="container align-self-center">
-    <div class="row">
+<section class="gradient-form d-flex">
+  <div class="container align-self-center h-100"> <!-- Adjusted height -->
+    <div class="row h-100"> <!-- Adjusted height -->
       <div class="col-md-6">
-        <div class="card text-black">
-          <div class="card-body mx-md-4">
+        <div class="card text-black h-100"> <!-- Adjusted height -->
+          <div class="card-body mx-md-2">
             <div class="text-center">
-              <img src="https://scalebranding.com/wp-content/uploads/2022/01/simple-dog.jpg" style="width: 400px;" alt="logo">
-              <h4 class="mt-1 mb-5 pb-1">Dog Owner Login</h4>
+              <img src="https://scalebranding.com/wp-content/uploads/2022/01/simple-dog.jpg" style="width: 45%;" alt="logo">
+              <h4 class="mt-1 mb-2 pb-1" style="font-size: 24px;">Dog Owner Login</h4> <!-- Reduced font size -->
             </div>
             <form>
-              <div class="form-outline mb-4">
-                <input type="email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}" class="form-control" id="email" placeholder="Enter Email">
-                <label class="form-label" for="email">Email</label>
+              <div class="form-outline mb-1">
+                <input type="email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}" class="form-control" id="email" placeholder="Enter Email" style="font-size: 16px;"> <!-- Reduced font size -->
+                <label class="form-label" for="email" style="font-size: 16px;">Email</label> <!-- Reduced font size -->
               </div>
-              <div class="form-outline mb-4">
-                <input type="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}" class="form-control" id="password" placeholder="Enter Password">
-                <label class="form-label" for="password">Password</label>
+              <div class="form-outline mb-1">
+                <input type="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}" class="form-control" id="password" placeholder="Enter Password" style="font-size: 16px;"> <!-- Reduced font size -->
+                <label class="form-label" for="password" style="font-size: 16px;">Password</label> <!-- Reduced font size -->
               </div>
-              <div class="text-center pt-1 mb-5 pb-1">
-                <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="button" (click)="Login()">Log in</button>
+              <div class="text-center pt-1 mb-2 pb-1">
+                <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-1" type="button" (click)="Login()" style="font-size: 18px;">Log in</button> <!-- Adjusted font size -->
               </div>
-              <div class="d-flex align-items-center justify-content-center pb-4">
-                <p class="mb-0 me-2">Don't have an account?</p>
-                <button type="button" class="btn btn-outline-danger" (click)="navigateToRegister()">Register</button>
+              <div class="d-flex align-items-center justify-content-center pb-1">
+                <p class="mb-0 me-1" style="font-size: 14px;">Don't have an account?</p> <!-- Reduced font size -->
+                <button type="button" class="btn btn-outline-danger" (click)="navigateToRegister()" style="font-size: 16px;">Register</button> <!-- Adjusted font size -->
               </div>
             </form>
           </div>
         </div>
       </div>
       <div class="col-md-6 d-flex align-items-center gradient-custom-2">
-        <div class="text-white px-3 py-4 p-md-5 mx-md-4">
-          <h4 class="mb-4" >Welcome to our DogCare page!</h4>
-          <p class="small mb-0"> Log in to access personalized insights and recommendations for your furry friends. Discover tailored advice based on your dogs' unique characteristics and keep track of their health and well-being effortlessly.</p>
+        <div class="text-white px-1 py-2 p-md-3 mx-md-2">
+          <h4 class="mb-1" style="font-size: 40px;">Welcome to our DogCare page!</h4> <!-- Reduced font size -->
+          <p class="small mb-0" style="font-size: 18px;">Log in to access personalized insights and recommendations for your furry friends. Discover tailored advice based on your dogs' unique characteristics and keep track of their health and well-being effortlessly.</p> <!-- Reduced font size -->
         </div>
       </div>
     </div>

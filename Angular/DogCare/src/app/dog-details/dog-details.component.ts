@@ -50,10 +50,13 @@ export class DogDetailsComponent implements OnInit {
     console.log("Email = ", this.userService.getUserEmailbyId())
     if(this.breedAverageWeightLowerBound && this.breedAverageWeightUpperBound)
     if (this.dog.weight < this.breedAverageWeightLowerBound) {
+      alert('Your dog ' + this.dog.name + ' is underweight. Check Email for more Information')
       bodyData.text = 'Your dog ' + this.dog.name + ' is underweight. Consider increasing its food intake. Normal weight should be ' + this.breedInfo.weight.metric +' kg';
     } else if (this.dog.weight > this.breedAverageWeightUpperBound) {
+      alert('Your dog ' + this.dog.name + ' is overweight. Check Email for more Information')
       bodyData.text = 'Your dog ' + this.dog.name +' is overweight. Consider reducing its food intake. Normal weight should be ' + this.breedInfo.weight.metric +' kg';
     } else {
+      alert('Your dog is within the ideal weight range. Check Email for more Information')
       bodyData.text = 'Your dog is within the ideal weight range.';
     }
 

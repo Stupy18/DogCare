@@ -107,3 +107,6 @@
 .card-body {
   margin-top: -30px; /* Adjust top margin to move the form up */
 }
+.custom-height {
+  height: 95%; /* 5% less in height */
+}

@@ -15,6 +15,7 @@ export class AddActivityComponent {
   selectedActivityId: number | null = null;
   selectedDogId: number | null = null;
   notes: string = ''; // Adding a property for notes
+  
 
   constructor(private http: HttpClient, private userService: UserService, private dogService: DogService) {}
 

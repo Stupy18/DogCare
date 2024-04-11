@@ -1,7 +1,8 @@
 .container {
-  max-width: 1200px;
+  max-height: 50%;
+  max-width: 70%;
   margin: 0 auto;
-  padding: 20px;
+  padding: 10px;
   position: relative; /* Ensure the container stays on top of the pseudo-element */
   z-index: 1; /* Ensure the container stays on top of the pseudo-element */
 }
@@ -9,15 +10,16 @@
 .page-title {
   text-align: center;
   color: #333;
-  margin-top: -20px;
+  margin-top: 5%;
   margin-bottom: 40px;
+  font-size:larger;
 }
 
 .add-dog-btn {
   background-color: #12b4b9; 
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 2% 4%;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -36,29 +38,38 @@
 
 .dog-list h2 {
   position: absolute;
-  top: 50px;
-  right: 450px;
+  top: -3%;
+  /* right: 15%; */
   font-weight: bold;
   font-size: 48px; 
   color: #000000;
   margin-bottom: 20px;
   margin-top: auto;
+  padding-left:30%;
+  background-image: linear-gradient(to bottom right, #ffcccc, #ccffff);
+  width: 80%;
+  left:32.5%;
+  border-radius: 25px;
+  padding-bottom: 1%;
+  
+  
 }
 
 
 .dog-card {
-  background-color: #ffffff;
-  right: -200px;
-  bottom: -90px;
-  left: 350px;
+  width: 83.5%;
+  bottom: -20%;
+  left: 85%;
+  /* left:-5%; */
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  margin-top: 30px; 
-  margin-left: 30px;
+  margin-top: 5%; 
+  /* margin-right: 45%; */
+  background-image: linear-gradient(to bottom right, #ffcccc, #ccffff);
 }
 
 .card-img-top {
-  height: 280px;
+  height: 80%;
   object-fit: cover;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -67,6 +78,7 @@
 .card-body {
   text-align: center;
   height: 0px;
+  size: 80%
 }
 
 .card-title {
@@ -83,8 +95,21 @@
   color: #333;
 }
 
+
 .text-center {
   text-align: center;
+}
+
+.text-no-dog{
+  top:5%;
+}
+
+.text-no-dog {
+  margin-top: 30%;
+  margin-left: 50%;
+
+  padding: 10px; /* Add padding */
+  border-radius: 10px; /* Add border radius */
 }
 
 .background-image {
@@ -92,8 +117,8 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 101%;
+  height: 137%;
   background-image: url('https://media.istockphoto.com/id/922637404/vector/dog-paw-print-seamless-template-for-your-design-wrapping-paper-card-poster-banner-flyer.jpg?s=612x612&w=0&k=20&c=eVW2LY0e1WMIDANzfLKBZd0YKYndv6Cb0-2_LfK9J_A='); /* Replace 'your-background-image-url.jpg' with your actual background image URL */
   background-size: cover;
   background-position: center;
@@ -103,11 +128,12 @@
 
 .white-container {
   position: fixed; 
-  top: 0; 
-  left: 0; 
-  height: 100vh; 
-  width: 600px; 
-  padding: 40px; 
+  top: 1%; 
+  left: 1%; 
+  height: 98%; 
+  /* bottom:1%; */
+  width:32%; 
+  padding: 30px; 
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   overflow-y: auto; 
@@ -116,19 +142,19 @@
   background-image: linear-gradient(to bottom right, #ffcccc, #ccffff);
 }
 
-.dog-container {
+/* .dog-container {
   position: absolute;
   top: -50px;
-  right: -330px;
+  right: -10%;
   background-image: linear-gradient(to bottom right, #ffcccc, #ccffff);
-  height: 95vh;
-  width: 1200px;
+  height: 200%;
+  width: 80%;
   padding: 40px;
   border: 1px solid #ccc;
   padding: 0px;
   margin-bottom: 30px;
   z-index: 0; 
-}
+} */
 .section-title {
   color: #333;
   font-size: 24px;
@@ -143,18 +169,18 @@
 
 .option-message {
   color: #666;
-  font-size: 19px;
+  font-size: 90%;
 }
 
 .logout-button {
   position: absolute;
-  bottom: 20px; /* Adjust as needed */
-  left: 10%; /* Center horizontally */
-  transform: translateX(-50%); /* Center horizontally */
+  top: 2%; /* Adjust as needed */
+  left: 3%; /* Adjust as needed */
+  transform: none; /* Reset the transform */
   background-color: #12b4b9; /* Green background */
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 5px 13px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -165,8 +191,12 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); /* Shadow for depth */
 }
 
+
 .logout-button:hover {
   background-color: #df0c8e; 
+}
+.activities:hover{
+background-color: #df0c8e; 
 }
 img {
   background-color: transparent;
@@ -176,7 +206,7 @@ img {
   background-color: #12b4b9; 
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 2% 4%;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -188,3 +218,27 @@ img {
   border-radius: 25px; /* Rounded corners */
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); /* Shadow for depth */
 }
+
+.card-img-top,
+.card-body {
+  transition: transform 0.3s ease; /* Smooth transition for scale */
+}
+
+
+.card-img-top:hover,
+.card-body:hover ~ .card-img-top {
+  transform: scale(1.1); /* Scale up on hover */
+  cursor: pointer;
+}
+
+.card-img-top:hover ~ .card-body,
+.card-body:hover {
+  transform: scale(1.18); /* Increase scale to make them grow a bit more */
+  cursor: pointer;
+}
+
+
+/* .card-img-top:hover ~ .card-body,
+.card-body:hover {
+  transform: scale(1.2); /* Increase scale to make them grow a bit more */
+/* } */
