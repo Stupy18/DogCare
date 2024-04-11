@@ -25,6 +25,10 @@ export class HomeComponent implements OnInit {
 
   ) {}
 
+  logout(): void {
+    this.router.navigateByUrl('');
+  }
+
   ngOnInit(): void {
     const userId = this.userService.getUserId(); // Use UserService to get the user ID
     console.log(this.showAddDogModal);

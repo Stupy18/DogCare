@@ -1,36 +1,45 @@
+<div class="background-image"></div>
 <div class="container mt-5">
-    <h1 class="page-title"><u><b>Welcome to DogCare</b></u></h1>
-    <button type="button" class="btn btn-primary" (click)="addDogForm.openModal()">Add Dog</button>
+    <div class="white-container">
+        <div class="text-center">
+        <img src="https://i.ibb.co/YDLyMd1/e-Cs-FL0-Nk-RV1-Robix2fs-X-transformed.png" style="width: 250px; margin-top: -50px;" alt="logo">
+    <h1 class="page-title"><b>Navigate DogCare: Explore Your Options!</b></h1>
+    <p class="option-message"> Create profiles for your furry friends, track their health and activities. Click 'Add Your Dog' to start. Explore features for happier, healthier dogs!</p>
+    <button type="button" class="btn btn-primary add-dog-btn" (click)="addDogForm.openModal()">Add Your Dog</button>
     <app-add-dog-form #addDogForm (dogAdded)="handleDogAdded($event)"></app-add-dog-form>
-    <button type="button" class="btn btn-info" (click)="openAddActivityModal()">Add Activity</button>
+    <p class="option-message">Elevate your dog's experience with DogCare by adding vital activities like walks, feeding schedules, and vet visits! </p>
+    <button type="button" class="btn btn-info add-dog-btn" (click)="openAddActivityModal()">Add Activities for your Dog(s)</button>
     <app-add-activity [show]="showAddActivity"></app-add-activity>
+    <button type="button" class="btn btn-primary logout-button" (click)="logout()">Logout</button>
 
-    <div class="dog-list mt-4">
-      <h2>Your Dogs</h2>
-      <div *ngIf="dogs.length > 0; else noDogs">
-        <div class="row">
-          <div *ngFor="let dog of dogs" class="col-lg-4 mb-4" (click)="selectDog(dog)">
-            <div class="card dog-card h-100">
-              <img [src]="dog.imageURL" class="card-img-top" alt="{{ dog.name }}">
-              <div class="card-body">
-                <h5 class="card-title">{{ dog.name }}</h5>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Dog Details Modal -->
-        <app-dog-details 
-          [dog]="selectedDog" 
-          *ngIf="selectedDog" 
-          (close)="selectedDog = null"
-          (edit)="onEditDog($event)"
-          (delete)="onDeleteDog($event)">
-      </app-dog-details>
-      </div>
-      <ng-template #noDogs>
-        <p class="text-center mt-4">No dogs found for this user.</p>
-      </ng-template>
     </div>
-  </div>
-  
+</div>
+    <div class="dog-container mt-4">
+        <div class="dog-list mt-4">
+            <h2>Your Dogs</h2>
+            <div *ngIf="dogs.length > 0; else noDogs">
+                <div class="row">
+                    <div *ngFor="let dog of dogs" class="col-lg-4 mb-4" (click)="selectDog(dog)">
+                        <div class="card dog-card h-100">
+                            <img [src]="dog.imageURL" class="card-img-top" alt="{{ dog.name }}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ dog.name }}</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Dog Details Modal -->
+                <app-dog-details 
+                    [dog]="selectedDog" 
+                    *ngIf="selectedDog" 
+                    (close)="selectedDog = null"
+                    (edit)="onEditDog($event)"
+                    (delete)="onDeleteDog($event)">
+                </app-dog-details>
+            </div>
+            <ng-template #noDogs>
+                <p class="text-center mt-4">No dogs found for this user.</p>
+            </ng-template>
+        </div>
+    </div>
+</div>
