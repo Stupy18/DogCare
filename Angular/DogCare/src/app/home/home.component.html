@@ -11,15 +11,18 @@
     <button type="button" class="btn btn-info add-dog-btn" (click)="openAddActivityModal()">Add Activities for your Dog(s)</button>
     <app-add-activity [show]="showAddActivity"></app-add-activity>
     <button type="button" class="btn btn-primary logout-button" (click)="logout()">Logout</button>
-    <button type="button" class="btn btn-primary" (click)="plannedActivitiesButton.showPlannedActivities()">Show Planned Activities</button>
+    <p class="option-message">Look at your planned activities! </p>
+    <button type="button" class="btn btn-primary activities" (click)="plannedActivitiesButton.showPlannedActivities()">Show Planned Activities</button>
     <app-planned-activities-button></app-planned-activities-button>
-
 
     </div>
 </div>
     <div class="dog-container mt-4">
         <div class="dog-list mt-4">
-            <h2>Your Dogs</h2>
+            <h2><u>Your Dogs</u></h2>
+        </div>
+    </div>
+    
             <div *ngIf="dogs.length > 0; else noDogs">
                 <div class="row">
                     <div *ngFor="let dog of dogs" class="col-lg-4 mb-4" (click)="selectDog(dog)">
@@ -44,5 +47,5 @@
                 <p class="text-center mt-4">No dogs found for this user.</p>
             </ng-template>
         </div>
-    </div>
-</div>
+    
+
