@@ -10,8 +10,8 @@
         <p><strong>Bred for:</strong> {{ breedInfo?.bred_for }}</p>
         <p><strong>Life span:</strong> {{ breedInfo?.life_span }}</p>
         <p><strong>Temperament:</strong> {{ breedInfo?.temperament }}</p>
-        <p><strong>Height:</strong> {{ breedInfo?.height?.metric }} cm</p>
-        <p><strong>Weight:</strong> {{ breedInfo?.weight?.metric }} kg</p>
+        <!-- <p><strong>Height:</strong> {{ breedInfo?.height?.metric }} cm</p>
+        <p><strong>Weight:</strong> {{ breedInfo?.weight?.metric }} kg</p> -->
         <!-- Add more API breed info as needed -->
       </div>
       <!-- Dog Image in the Center -->
@@ -28,8 +28,10 @@
     </div>
     <!-- Modal Footer with Edit/Delete buttons -->
     <div class="modal-footer">
-      <button class="btn btn-primary" (click)="editDog(dog)">Edit</button>
-      <button class="btn btn-danger" (click)="deleteDog(dog)">Delete</button>
+      <button class="btn btn-primary" (click)="editDog(dog)">Update</button>
+      <button class="btn btn-danger" (click)="deleteDog(dog)">Remove</button>
+      <button class="btn btn-info" (click)="sendWeightAlert()">Check Weight</button> <!-- New button -->
     </div>
+    
   </div>
 </div>

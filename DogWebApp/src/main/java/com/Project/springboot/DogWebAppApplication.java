@@ -35,6 +35,10 @@ public class DogWebAppApplication {
 						.allowedOrigins("http://localhost:4200") // Allow requests from this origin
 						.allowedMethods("GET", "POST", "PUT", "DELETE") // Allow these HTTP methods
 						.allowedHeaders("*"); // Allow all headers
+				registry.addMapping("/send-email") // Adjust the mapping as needed
+						.allowedOrigins("http://localhost:4200") // Allow requests from this origin
+						.allowedMethods("GET", "POST", "PUT", "DELETE") // Allow these HTTP methods
+						.allowedHeaders("*"); // Allow all headers
 
 			}
 		};

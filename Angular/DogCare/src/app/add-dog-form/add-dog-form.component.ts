@@ -1,6 +1,8 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { DogService } from '../services/dog.service';
 import { HttpClient } from '@angular/common/http';
+import { HomeComponent } from '../home/home.component';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-add-dog-form',
@@ -45,9 +47,26 @@ export class AddDogFormComponent {
   closeModal(): void { this.show = false; }
 
   addDog(): void {
+    // Check if any of the required fields are empty, undefined, or 0
+    if (!this.newDog.name.trim() ||
+        !this.newDog.breedName.trim() ||
+        this.newDog.age <= 0 ||
+        this.newDog.weight <= 0 ||
+        this.newDog.height <= 0) {
+      alert('All attributes must be completed!');
+      return; // Prevent the form submission
+    }
+  
+    // Proceed with the API call if validation passes
     this.dogService.addDogForUser(this.newDog).subscribe(
-      response => { this.dogAdded.emit(response); this.closeModal(); },
+      response => {
+        this.dogAdded.emit(response); // Notify parent component or other listeners
+        this.closeModal(); // Close the modal form
+        window.location.reload(); // Optionally reload the page to reflect the change
+      },
       error => console.error('Error adding dog:', error)
     );
   }
+  
+  
 }

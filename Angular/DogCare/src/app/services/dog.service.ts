@@ -29,6 +29,7 @@ export class DogService {
     if (!userId) {
       throw new Error('User ID not found');
     }
+
     return this.http.post<any>(`http://localhost:8080/dogs/user/${userId}`, dogData);
   }
   

@@ -34,6 +34,16 @@ export class UserService {
     }   
   }
 
+  getUserEmailbyId(): string {
+    if (isPlatformBrowser(this.platformId)) {
+      // Retrieve the email from local storage
+      const userEmail = localStorage.getItem('token');
+      return userEmail ? userEmail : ''; // Return empty string if email not found
+    } else {
+      return '';
+    }
+  }
+
   clearUserId(): void {
     if (isPlatformBrowser(this.platformId)) {
       this.userId = null;

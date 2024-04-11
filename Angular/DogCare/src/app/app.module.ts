@@ -22,7 +22,7 @@ import { PlannedActivitiesButtonComponent } from './planned-activities-button/pl
     AddDogFormComponent,
     DogDetailsComponent,
     AddActivityComponent,
-    PlannedActivitiesButtonComponent,
+    PlannedActivitiesButtonComponent
   ],
   imports: [
     BrowserModule,
